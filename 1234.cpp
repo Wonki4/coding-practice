@@ -8,7 +8,7 @@ char str[101];
 
 int main(void) {
     ifstream cin;
-    cin.open("/Users/wongi/Downloads/input-13.txt");
+	cin.open("./input/input_1234.txt");
 
     for(int test_case = 1; test_case<=10; test_case++) {
         vector<char> v;

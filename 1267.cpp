@@ -30,7 +30,7 @@ void dfs(int node) {
 
 int main(void) {
     ifstream cin;
-    cin.open("/Users/wongi/Downloads/input-14.txt");
+	cin.open("./input/input_1267.txt");
 
     for(int test_case = 1; test_case<=10; test_case++) {
         int V, E, a, b;

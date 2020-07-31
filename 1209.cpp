@@ -1,5 +1,4 @@
-﻿#include "pch.h"
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 using namespace std;
 
@@ -11,7 +10,7 @@ bool isWall(int x, int y) {
 int main() {
 	ios_base::sync_with_stdio(false);
 	ifstream cin;
-	cin.open("C:\\Users\\qordn\\Downloads\\input (1).txt");
+	cin.open("./input/input_1209.txt");
 
 	for (int test_case = 1; test_case <= 10; test_case++) {
 		int table[102][102] = { 0 };

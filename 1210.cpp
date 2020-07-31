@@ -1,24 +1,23 @@
-﻿#include "pch.h"
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 using namespace std;
 
 bool notWall(int x, int y) {
-	if (x < 1 || x>100 || y < 1 || y> 100)  return false;
+	if (x < 1 || x>100 || y < 1 || y> 100) return false;
 	else return true;
 }
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	ifstream cin;
-	cin.open("C:\\Users\\qordn\\Downloads\\input (3).txt");
+	cin.open("./input/input_1210.txt");
 
 	for (int test_case = 1; test_case <= 10; test_case++) {
 		int table[102][102] = { 0 };
 		int len = 0;
 		int start = 0;
-		int end = 0;
-		
+		int cy = 100;
+		int cx = 0;
 		cin >> len;
 
 		int dx[] = { -1 ,1,0};
@@ -30,36 +29,44 @@ int main() {
 			}
 		}
 		for (int i = 1; i <= 100; i++) {
-			if (table[100][i] == 2) end = i;
+			if (table[100][i] == 2) cx = i;
 		}
 		//find the way
-		int cy = 100;
-		int cx = end;
+
 		int nexty = 0;
 		int nextx = 0;
-		int previousx = end;
-		for (int move = 1; move <= 200; move++) {
+		bool left = false;
+		bool right = false;
+
+		for (int move = 1; move <= 300; move++) {
 			if (cy == 1) break;
-			for (int i = 0; i < 1; i++) {
-				nextx = cx + dx[i];
+
+			for (int i = 0; i < 3; i++) {
 				nexty = cy + dy[i];
+				nextx = cx + dx[i];
 				if (notWall(nextx, nexty) && table[nexty][nextx] == 1) {
-					if ((i == 0 || i == 1) && previousx != nextx) {
-						previousx = nextx;
+					if(i == 0 && !right) {
 						cx = nextx;
-						cy = nexty;
+						left = true;
 						break;
 					}
-					if (i == 2) {
-						previousx = nextx;
+					if(i == 1 && !left) {
 						cx = nextx;
-						cy = nexty;
+						right = true;
+						break;
 					}
+					if(i == 2) {
+						cy = nexty;
+						left = false;
+						right = false;
+						break;
+					}
+					//cout <<move<<" "<< cx << " " << cy << " "<< i <<"\n";
 				}
 			}
 
 		}
 		start = cx;
-		cout << "#" << test_case << " " << start << "\n";
+		cout << "#" << test_case << " " << start-1 << "\n";
 	}
 }

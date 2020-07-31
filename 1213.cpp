@@ -5,7 +5,7 @@ using namespace std;
 
 int main(void) {
     ifstream cin;
-    cin.open("./test_input.txt");
+	cin.open("./input/input_1213.txt");
     for(int test_case = 1; test_case <=10; test_case++) {
         int num = 0;
         int ss;

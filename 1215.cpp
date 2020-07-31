@@ -23,7 +23,7 @@ bool felindrome(int y, int x, int len, int dir) {
 
 int main(void) {
     ifstream cin;
-    cin.open("./input-6.txt");
+	cin.open("./input/input_1215.txt");
     for(int test_case = 1; test_case<=10; test_case++) {
         memset(board, 0, SIZE*(SIZE+1));
         cnt = 0;

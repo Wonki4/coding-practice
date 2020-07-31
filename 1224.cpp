@@ -67,7 +67,7 @@ int postCal(void) {
 
 int main(void) {
     ifstream cin;
-    cin.open("/Users/wongi/Downloads/input-12.txt");
+	cin.open("./input/input_1224.txt");
     m.insert(make_pair('(',make_pair(0, 3)));
     m.insert(make_pair('*',make_pair(2, 2)));
     m.insert(make_pair('+',make_pair(1, 1)));
